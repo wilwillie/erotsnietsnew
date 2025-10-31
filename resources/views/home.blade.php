@@ -4,7 +4,7 @@
 
 @section('content') <section class="hero-section">
         <div class="content">
-            <h1>Cek dan Lapor!<br><span>Cek Keamanan akun kamu secara gratis!</span></h1>
+            <h1>Cek dan Lapor!<br><span>Cek keamanan akun kamu secara gratis!</span></h1>
             <p>Web wenstein store tempat kamu cek keamanan akun mu,<br> dan cek keamanan akun yang mau kamu beli </p>
             <div class="center-btn"> <a href="{{ url('/kasus') }}"><button class="btn-hero"><span><i
                                 class="fas fa-search"></i></span> Cek ID
