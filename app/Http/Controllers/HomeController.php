@@ -10,8 +10,13 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Fetch the last 5 dangerous accounts from the database
-        $kasus = DangerousAccount::latest()->take(5)->get();
+        // --- PERUBAHAN DI SINI ---
+        // Fetch the last 5 DANGEROUS ACCOUNTS that are ACCEPTED by the admin.
+        $kasus = DangerousAccount::where('is_accepted', true) // <-- FILTER AKUN YANG SUDAH DIKONFIRMASI
+                                 ->latest()
+                                 ->take(5)
+                                 ->get();
+        // ------------------------
 
         // Pass the data to the home view
         return view('home', compact('kasus'));
@@ -32,6 +37,7 @@ class HomeController extends Controller
 
         $mlId = $request->input('ml_id');
 
+        // Note: Pastikan route dangerous.show menangani kasus jika ID tidak ditemukan/belum dikonfirmasi.
         return redirect()->route('dangerous.show', ['id' => $mlId]);
     }
 }
